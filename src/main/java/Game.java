@@ -1,32 +1,22 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Game {
-    private List<Player> players = new ArrayList<>();
+    private Map<String, Player> players = new HashMap<>();
 
     // Класс для тестирования, можно без него, если players будет public
-    List<Player> getPlayers() {
+    Map<String, Player> getPlayers() {
         return players;
     }
 
 
     public void register(Player player) {
-        players.add(player);
+        players.put(player.getName(), player);
     }
 
     public int round(String playerName1, String playerName2) throws NotRegisteredException {
-        Player player1 = null;
-        Player player2 = null;
-
-        // Поиск игроков по имени
-        for (Player player : players) {
-            if (player.getName().equals(playerName1)) {
-                player1 = player;
-            }
-            if (player.getName().equals(playerName2)) {
-                player2 = player;
-            }
-        }
+        Player player1 = players.get(playerName1);
+        Player player2 = players.get(playerName2);
 
         // Проверка, найдены ли оба игрока
         if (player1 == null || player2 == null) {
