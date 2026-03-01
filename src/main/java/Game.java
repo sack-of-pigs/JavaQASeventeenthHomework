@@ -4,6 +4,12 @@ import java.util.List;
 public class Game {
     private List<Player> players = new ArrayList<>();
 
+    // Класс для тестирования, можно без него, если players будет public
+    List<Player> getPlayers() {
+        return players;
+    }
+
+
     public void register(Player player) {
         players.add(player);
     }
