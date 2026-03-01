@@ -1,6 +1,4 @@
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +59,7 @@ class GameTest {
 
     @Test
     void testRoundSecondPlayerNotRegistered() {
-        game.register(player1); // Регистрируем только Alice
+        game.register(player1);
 
         assertThrows(
                 NotRegisteredException.class,
